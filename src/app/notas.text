@@ -1,0 +1,10 @@
+
+comandos de creacion de modulo en diferido
+
+ng g m paises
+ng g c paises/paisesMundo --skip-tests
+ng g c paises/paisDetalles --skip-tests
+ng g c paises/paises --style=none --flat --skip-tests
+    sin archivo css y sin estar en carpeta
+    
+ng g s paises/paises --skip-tests

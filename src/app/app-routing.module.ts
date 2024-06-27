@@ -5,8 +5,17 @@ import { NotFoundComponent } from './inicio/not-found/not-found.component';
 
 const routes: Routes = [
   // carga inmediata
+  // { path: '', redirectTo: '/home', pathMatch: 'full' },
+  // { path: 'home', component: HomeComponent },
+  // { path: '**', component: NotFoundComponent }
+
   { path: '', redirectTo: '/home', pathMatch: 'full' },
+  
   { path: 'home', component: HomeComponent },
+
+  // rutas lazyload
+  { path: 'paises', loadChildren: () => import('./paises/paises.module').then((m) => m.PaisesModule) },
+
   { path: '**', component: NotFoundComponent }
 
 ];
