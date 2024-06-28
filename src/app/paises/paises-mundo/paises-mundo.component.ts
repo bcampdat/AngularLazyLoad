@@ -11,14 +11,27 @@ import { Router } from '@angular/router';
 export class PaisesMundoComponent {
   paises: IPais[] = [];
 
-  constructor(private paiseService: PaisesService, private router: Router) {}
+  constructor(private paisesService: PaisesService, private router: Router) {}
 
   ngOnInit() {
     this.getPaises();
   }
 
+
+
   getPaises() {
-    this.paiseService.getPaises().subscribe({
+    this.paisesService.getPaises().subscribe({
+      next: (data) => {
+        console.log(data);
+        this.paises = data;
+      },
+      error: (err) => console.log(err),
+      complete: () => console.log('OK')
+    });
+  }
+
+  getPaisesGenerico() {
+    this.paisesService.get<IPais[]>('https://restcountries.com/v3.1/all').subscribe({
       next: (data) => {
         console.log(data);
         this.paises = data;

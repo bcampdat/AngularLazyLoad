@@ -7,6 +7,11 @@ import { IPais } from './pais.interface';
 export class PaisesService {
   constructor(private http: HttpClient) {}
 
+  // uso de genericos <diamante>
+  get<T>(url: string): Observable<T> {
+    return this.http.get<T>(url);
+  }
+
   getPaises(): Observable<IPais[]> {
     return this.http.get<IPais[]>('https://restcountries.com/v3.1/all');
   }
