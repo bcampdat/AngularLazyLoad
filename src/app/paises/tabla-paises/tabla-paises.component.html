@@ -1,0 +1,18 @@
+<p>tabla-paises works!</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Continente</th>
+      <th scope="col">País</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pais of paises">
+      <td>{{pais.region}}</td>
+      <td>{{pais.name.common}}</td>
+      
+      <td><button class="btn btn-primary" (click)="verDetalles(pais)">Ver detalles</button></td>
+    </tr>
+  </tbody>
+</table>

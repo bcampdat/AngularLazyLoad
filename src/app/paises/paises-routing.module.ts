@@ -13,6 +13,9 @@ const appRoutes: Routes = [
       { path: 'paises-mundo', component: PaisesMundoComponent },
       {
         path: 'pais-detalles/:pais',
+        // :pais  => this.route.navigateByUrl('/paises/pais-detalles/' + pais.name.common);
+        // en pais-mundo.component
+        
         component: PaisDetallesComponent
       }
     ]

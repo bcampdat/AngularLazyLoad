@@ -1,1 +1,9 @@
 <p>paises-mundo works!</p>
+<div class="container">
+    <div class="row mt-2">
+      <div class="col">
+        <app-tabla-paises [paises]="paises" (elegidoPais)="verDetalles($event)"></app-tabla-paises>
+      </div>
+    </div>
+  </div>
+  

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { IPais } from '../pais.interface';
+import { PaisesService } from '../paises.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-paises-mundo',
@@ -6,5 +9,27 @@ import { Component } from '@angular/core';
   styleUrls: ['./paises-mundo.component.css']
 })
 export class PaisesMundoComponent {
+  paises: IPais[] = [];
 
+  constructor(private paiseService: PaisesService, private router: Router) {}
+
+  ngOnInit() {
+    this.getPaises();
+  }
+
+  getPaises() {
+    this.paiseService.getPaises().subscribe({
+      next: (data) => {
+        console.log(data);
+        this.paises = data;
+      },
+      error: (err) => console.log(err),
+      complete: () => console.log('OK')
+    });
+  }
+
+  verDetalles(pais: IPais) {
+    this.router.navigateByUrl('/paises/pais-detalles/' + pais.name.common);
+    
+  }
 }

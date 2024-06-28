@@ -1,0 +1,9 @@
+<p>card-pais works!</p>
+<div class="card" style="width: 18rem;" *ngIf="pais">
+    <img [src]="pais.flags.png" class="card-img-top" [alt]="pais.name.common">
+    <div class="card-body">
+      <h5 class="card-title">{{pais.name.common}}</h5>
+      <p class="card-text">{{pais.capital}}</p>
+      <a href="{{pais.maps.googleMaps}}" target="_blank" class="btn btn-primary">Ver mapa</a>
+    </div>
+  </div>
